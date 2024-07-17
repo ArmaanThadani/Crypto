@@ -167,30 +167,3 @@ def main():
 
     if args[0] == "-decrypt":
         print(decrypt_file(args[2], args[1]))
-
-
-# Python boilerplate.
-if __name__ == '__main__':
-    main()
-
-
-    def decrypt_file(filename, key):
-        """
-        Given filename and key, compute and
-        print the decrypted form of its lines.
-        """
-        f = open(filename, 'r')
-
-        slug = compute_slug(key)
-        output = f.readline()
-        final = decrypt_str(ALPHABET, slug, output)
-
-        while output != "":
-            output = f.readline()
-            final = final + decrypt_str(ALPHABET, slug, output)
-
-        f.close()
-
-        return final
-
-
